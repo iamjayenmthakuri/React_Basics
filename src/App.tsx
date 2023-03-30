@@ -8,25 +8,20 @@ const handleSelectedItem = (item: string) => {
 };
 
 function App() {
+  let items = ["New York", "Londan", "Kathmandu", "Pokhera", "Bhaktpur"];
   const [alert, setAlert] = useState(false);
   return (
-    <div>
+    <>
       {alert && <Alert onClose={() => setAlert(false)}>Alert</Alert>}
       <Button color="danger" onClick={() => setAlert(true)}>
         My Button
       </Button>
-    </div>
-
-    // let items = ["New York", "Londan", "Kathmandu", "Pokhera", "Bhaktpur"];
-    // return (
-    //   <div>
-    //     <ListGroup
-    //       items={items}
-    //       heading={"Cites"}
-    //       onSelectItem={handleSelectedItem}
-    //     />
-    //   </div>
-    // );
+      <ListGroup
+        items={items}
+        heading={"Cites"}
+        onSelectItem={handleSelectedItem}
+      />
+    </>
   );
 }
 
