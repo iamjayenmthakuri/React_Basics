@@ -1,19 +1,18 @@
 import Alert from "./components/Alert";
 import ListGroup from "./components/ListGroup";
 import Button from "./components/Button";
-import { Children } from "react";
+import { Children, useState } from "react";
 
 const handleSelectedItem = (item: string) => {
   console.log(item);
 };
 
 function App() {
+  const [alert, setAlert] = useState(false);
   return (
     <div>
-      <Alert>
-        Hello <span>World</span>
-      </Alert>
-      <Button color="danger" onClick={() => console.log("clicked")}>
+      {alert && <Alert onClose={() => setAlert(false)}>Alert</Alert>}
+      <Button color="danger" onClick={() => setAlert(true)}>
         My Button
       </Button>
     </div>
